@@ -43,6 +43,6 @@ $app->get('/', function () use ($app) {
 
 $app->get('login', function() { return view('index'); });
 
-$app->get('callback', function() {
-    
+$app->get('callback', function($request) {
+    echo $request->input('hub.challenge');
 });
