@@ -48,5 +48,5 @@ $app->get('callback', function() use ($app) {
 });
 
 $app->post('callback', function() use ($app) {
-    $app->log->debug(file_get_contents('php://input'));
+    file_put_contents(__DIR__ . '../../public/file.txt', file_get_contents('php://input'));
 });
