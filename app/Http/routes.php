@@ -12,6 +12,8 @@
 */
 
 $app->get('/', function () use ($app) {
+    $app->log->debug('Hitting the subscription route..');
+
     $appId = '1459015154407859';
 
     $fb = new Facebook\Facebook([
@@ -44,9 +46,11 @@ $app->get('/', function () use ($app) {
 $app->get('login', function() { return view('index'); });
 
 $app->get('callback', function() use ($app) {
-    echo $app->request->input('hub_challenge');
+    $challenge = $app->request->input('hub_challenge');
+    $app->log->debug('challenge: ' . $challenge);
+    echo $challenge;
 });
 
 $app->post('callback', function() use ($app) {
-    file_put_contents(__DIR__ . '../../public/file.txt', file_get_contents('php://input'));
+    $app->log->debug('Post request coming in!');
 });
