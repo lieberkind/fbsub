@@ -22,12 +22,12 @@ $app->get('/', function () use ($app) {
         'default_graph_version' => 'v2.2',
     ]);
     
-    $request = $fb->request('POST', "/$appId/subscriptions", json_encode([
+    $request = $fb->request('POST', "/$appId/subscriptions", [
             'object' => 'page',
             'callback_url' => 'fbsub.purple.horse/callback',
             'fields' => 'feed',
             'verify_token' => 'thisisaverifystring'
-        ]));
+        ]);
     $request->setAccessToken('1459015154407859|75Nl63m_HJRRdUmLHXYMiXuv-YA');
 
     try {
