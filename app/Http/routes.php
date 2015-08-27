@@ -23,7 +23,7 @@ $app->get('/', function () use ($app) {
         'default_graph_version' => 'v2.2',
     ]);
 
-    $app->log->debuf('Trying to subscribe app');
+    $app->log->debug('Trying to subscribe app');
     $request1 = $fb->request('POST', "/$pageId/subscriped_apps", [
         'id'    => $pageId
     ]);
