@@ -37,7 +37,7 @@ $app->get('/', function () use ($app) {
             'fields' => 'feed',
             'verify_token' => 'thisisaverifystring'
         ]);
-    $request->setAccessToken('1459015154407859|75Nl63m_HJRRdUmLHXYMiXuv-YA');
+    $request->setAccessToken('1459015154407859|8383a4f0b8084e29237dffcb89b31cd5');
 
     try {
         $response = $fb->getClient()->sendRequest($request);
