@@ -23,11 +23,13 @@ $app->get('/', function () use ($app) {
         'default_graph_version' => 'v2.2',
     ]);
 
+    $app->log->debuf('Trying to subscribe app')
     $request1 = $fb->request('POST', "/$pageId/subscriped_apps", [
         'id'    => $pageId
     ]);
+    $request1->setAccessToken('1459015154407859|75Nl63m_HJRRdUmLHXYMiXuv-YA');
 
-    $response = $fb->getClient()->sendRequest($request);
+    $response = $fb->getClient()->sendRequest($request1);
 
     $request = $fb->request('POST', "/$appId/subscriptions", [
             'object' => 'page',
