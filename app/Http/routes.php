@@ -32,6 +32,8 @@ $app->get('/', function () use ($app) {
 
     try {
         $response = $fb->getClient()->sendRequest($request);
+
+        echo $response->getBody();
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
       // When Graph returns an error
       echo 'Graph returned an error: ' . $e->getMessage();
