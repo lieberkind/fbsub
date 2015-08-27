@@ -24,7 +24,7 @@ $app->get('/', function () use ($app) {
     ]);
 
     $app->log->debug('Trying to subscribe app');
-    $request1 = $fb->request('POST', "/$pageId/subscriped_apps", [
+    $request1 = $fb->request('POST', "/$pageId/subscribed_apps", [
         'id'    => $pageId
     ]);
     $request1->setAccessToken('1459015154407859|75Nl63m_HJRRdUmLHXYMiXuv-YA');
