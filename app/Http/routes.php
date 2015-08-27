@@ -25,7 +25,7 @@ $app->get('/', function () use ($app) {
     $request = $fb->request('POST', "/$appId/subscriptions", [
             'object' => 'page',
             'callback_url' => 'fbsub.purple.horse/callback',
-            'fields' => ['feed'],
+            'fields' => 'feed',
             'verify_token' => 'thisisaverifystring'
         ]);
     $request->setAccessToken('1459015154407859|75Nl63m_HJRRdUmLHXYMiXuv-YA');
