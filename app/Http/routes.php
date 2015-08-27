@@ -15,13 +15,20 @@ $app->get('/', function () use ($app) {
     $app->log->debug('Hitting the subscription route..');
 
     $appId = '1459015154407859';
+    $pageId = '375385325856838';
 
     $fb = new Facebook\Facebook([
         'app_id' => $appId,
         'app_secret' => '8383a4f0b8084e29237dffcb89b31cd5',
         'default_graph_version' => 'v2.2',
     ]);
-    
+
+    $request1 = $fb->request('POST', "/$pageId/subscriped_apps", [
+        'id'    => $pageId
+    ]);
+
+    $response = $fb->getClient()->sendRequest($request);
+
     $request = $fb->request('POST', "/$appId/subscriptions", [
             'object' => 'page',
             'callback_url' => 'fbsub.purple.horse/callback',
